@@ -1,16 +1,15 @@
-# This is a sample Python script.
+"""
+importing MobileNetV2
+"""
+from keras.applications.mobilenet_v2 import MobileNetV2
+from images import imread
+import numpy as np
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# imagenet - значит, что используется предобученная модель на большом объеме данных
+model = MobileNetV2(weights='imagenet')
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+"""
+Loading the image
+"""
+data = np.empty((1, 1754, 1240, 3))
+data[0] = imread('../images/img_0.png')
